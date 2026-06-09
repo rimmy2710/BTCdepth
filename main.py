@@ -5,6 +5,7 @@ from collectors.coingecko_collector import (
 )
 
 from storage.market_writer import write_market_snapshot
+from storage.exchange_depth_writer import write_exchange_depth
 
 
 def main():
@@ -18,6 +19,8 @@ def main():
     print_summary(summary)
 
     write_market_snapshot(summary)
+
+    write_exchange_depth(summary["selected_tickers"])
 
     print("\nPipeline completed successfully")
 

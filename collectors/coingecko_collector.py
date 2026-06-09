@@ -129,6 +129,7 @@ def build_market_summary(data):
         "top_exchange_depth_down_usd": round(top_exchange["depth_down_usd"], 2),
         "selected_exchange_count": len(selected_tickers),
         "selected_exchanges": ", ".join(sorted({item["exchange_name"] for item in selected_tickers})),
+        "selected_tickers": selected_tickers,
         "source": "CoinGecko",
     }
 
