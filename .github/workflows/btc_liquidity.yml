@@ -1,0 +1,65 @@
+name: BTC Liquidity System
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+jobs:
+  btc-liquidity:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Create Google credentials file
+        run: |
+          mkdir -p credentials
+          echo '${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON_CONTENT }}' > credentials/service-account.json
+
+      - name: Run 15m market collection
+        env:
+          COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: credentials/service-account.json
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python main.py
+
+      - name: Run 1H summary on hourly mark
+        if: ${{ github.event.schedule == '*/15 * * * *' }}
+        env:
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: credentials/service-account.json
+        run: |
+          minute=$(date -u +'%M')
+          if [ "$minute" = "00" ]; then
+            python -m processors.summary_1h_job
+          else
+            echo "Skip 1H summary. Current minute: $minute"
+          fi
+
+      - name: Run 4H summary on 4H mark
+        if: ${{ github.event.schedule == '*/15 * * * *' }}
+        env:
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: credentials/service-account.json
+        run: |
+          hour=$(date -u +'%H')
+          minute=$(date -u +'%M')
+          if [ "$minute" = "00" ] && [ $((10#$hour % 4)) -eq 0 ]; then
+            python -m processors.summary_4h_job
+          else
+            echo "Skip 4H summary. Current time UTC: $hour:$minute"
+          fi
