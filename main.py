@@ -6,6 +6,7 @@ from collectors.coingecko_collector import (
 
 from storage.market_writer import write_market_snapshot
 from storage.exchange_depth_writer import write_exchange_depth
+from alerts.liquidity_alert import send_liquidity_alert_if_needed
 
 
 def main():
@@ -21,6 +22,11 @@ def main():
     write_market_snapshot(summary)
 
     write_exchange_depth(summary["selected_tickers"])
+
+    send_liquidity_alert_if_needed(
+        summary=summary,
+        selected_tickers=summary["selected_tickers"],
+    )
 
     print("\nPipeline completed successfully")
 
