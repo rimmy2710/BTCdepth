@@ -1,4 +1,5 @@
 import os
+import time
 
 import gspread
 from dotenv import load_dotenv
@@ -22,12 +23,45 @@ HEADERS = [
     "market_bias",
 ]
 
+MAX_RETRIES = 5
+RETRY_DELAY_SECONDS = 5
+
+
+def retry_google_sheets_operation(operation, action_name):
+    last_error = None
+
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            return operation()
+
+        except Exception as error:
+            last_error = error
+            print(
+                f"[Google Sheets Retry] {action_name} failed "
+                f"(attempt {attempt}/{MAX_RETRIES}): {error}"
+            )
+
+            if attempt < MAX_RETRIES:
+                sleep_seconds = RETRY_DELAY_SECONDS * attempt
+                print(f"Retrying in {sleep_seconds} seconds...")
+                time.sleep(sleep_seconds)
+
+    raise RuntimeError(
+        f"Google Sheets operation failed after {MAX_RETRIES} retries: {action_name}"
+    ) from last_error
+
 
 def get_spreadsheet():
     load_dotenv()
 
     sheet_id = os.getenv("GOOGLE_SHEET_ID")
     credentials_path = os.getenv("GOOGLE_SERVICE_ACCOUNT_JSON")
+
+    if not sheet_id:
+        raise ValueError("Missing GOOGLE_SHEET_ID")
+
+    if not credentials_path:
+        raise ValueError("Missing GOOGLE_SERVICE_ACCOUNT_JSON")
 
     scope = [
         "https://spreadsheets.google.com/feeds",
@@ -41,28 +75,39 @@ def get_spreadsheet():
 
     client = gspread.authorize(creds)
 
-    return client.open_by_key(sheet_id)
+    return retry_google_sheets_operation(
+        lambda: client.open_by_key(sheet_id),
+        "open spreadsheet",
+    )
 
 
 def get_or_create_worksheet(spreadsheet):
     try:
-        worksheet = spreadsheet.worksheet(WORKSHEET_NAME)
-
-    except Exception:
-        worksheet = spreadsheet.add_worksheet(
-            title=WORKSHEET_NAME,
-            rows=1000,
-            cols=len(HEADERS),
+        return retry_google_sheets_operation(
+            lambda: spreadsheet.worksheet(WORKSHEET_NAME),
+            f"open worksheet {WORKSHEET_NAME}",
         )
 
-        worksheet.append_row(HEADERS)
+    except Exception:
+        worksheet = retry_google_sheets_operation(
+            lambda: spreadsheet.add_worksheet(
+                title=WORKSHEET_NAME,
+                rows=1000,
+                cols=len(HEADERS),
+            ),
+            f"create worksheet {WORKSHEET_NAME}",
+        )
 
-    return worksheet
+        retry_google_sheets_operation(
+            lambda: worksheet.append_row(HEADERS),
+            f"write headers to {WORKSHEET_NAME}",
+        )
+
+        return worksheet
 
 
 def write_summary_4h(summary):
     spreadsheet = get_spreadsheet()
-
     worksheet = get_or_create_worksheet(spreadsheet)
 
     row = [
@@ -80,7 +125,10 @@ def write_summary_4h(summary):
         summary["market_bias"],
     ]
 
-    worksheet.append_row(row)
+    retry_google_sheets_operation(
+        lambda: worksheet.append_row(row),
+        f"append summary row to {WORKSHEET_NAME}",
+    )
 
     print("Summary 4H written to Google Sheets")
 
@@ -101,4 +149,4 @@ if __name__ == "__main__":
         "market_bias": "NEUTRAL",
     }
 
-    print("Summary 4H writer dry-run OK")
+    write_summary_4h(sample_summary)

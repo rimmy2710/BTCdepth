@@ -1,4 +1,5 @@
 import os
+import time
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
@@ -18,6 +19,33 @@ HEADERS = [
     "depth_down_usd",
     "depth_ratio",
 ]
+
+MAX_RETRIES = 5
+RETRY_DELAY_SECONDS = 5
+
+
+def retry_google_sheets_operation(operation, action_name):
+    last_error = None
+
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            return operation()
+
+        except Exception as error:
+            last_error = error
+            print(
+                f"[Google Sheets Retry] {action_name} failed "
+                f"(attempt {attempt}/{MAX_RETRIES}): {error}"
+            )
+
+            if attempt < MAX_RETRIES:
+                sleep_seconds = RETRY_DELAY_SECONDS * attempt
+                print(f"Retrying in {sleep_seconds} seconds...")
+                time.sleep(sleep_seconds)
+
+    raise RuntimeError(
+        f"Google Sheets operation failed after {MAX_RETRIES} retries: {action_name}"
+    ) from last_error
 
 
 def calculate_depth_ratio(depth_up_usd: float, depth_down_usd: float) -> Optional[float]:
@@ -86,21 +114,35 @@ def get_spreadsheet():
 
     client = gspread.authorize(creds)
 
-    return client.open_by_key(sheet_id)
+    return retry_google_sheets_operation(
+        lambda: client.open_by_key(sheet_id),
+        "open spreadsheet",
+    )
 
 
 def get_or_create_worksheet(spreadsheet: Any):
     try:
-        worksheet = spreadsheet.worksheet(WORKSHEET_NAME)
-    except Exception:
-        worksheet = spreadsheet.add_worksheet(
-            title=WORKSHEET_NAME,
-            rows=1000,
-            cols=len(HEADERS),
+        return retry_google_sheets_operation(
+            lambda: spreadsheet.worksheet(WORKSHEET_NAME),
+            f"open worksheet {WORKSHEET_NAME}",
         )
-        worksheet.append_row(HEADERS)
 
-    return worksheet
+    except Exception:
+        worksheet = retry_google_sheets_operation(
+            lambda: spreadsheet.add_worksheet(
+                title=WORKSHEET_NAME,
+                rows=1000,
+                cols=len(HEADERS),
+            ),
+            f"create worksheet {WORKSHEET_NAME}",
+        )
+
+        retry_google_sheets_operation(
+            lambda: worksheet.append_row(HEADERS),
+            f"write headers to {WORKSHEET_NAME}",
+        )
+
+        return worksheet
 
 
 def write_exchange_depth(selected_markets: List[Dict[str, Any]]) -> int:
@@ -113,7 +155,10 @@ def write_exchange_depth(selected_markets: List[Dict[str, Any]]) -> int:
         print("No exchange depth rows to write")
         return 0
 
-    worksheet.append_rows(rows)
+    retry_google_sheets_operation(
+        lambda: worksheet.append_rows(rows),
+        f"append exchange depth rows to {WORKSHEET_NAME}",
+    )
 
     print(f"Exchange depth rows written to Google Sheets: {len(rows)}")
 
@@ -151,4 +196,3 @@ if __name__ == "__main__":
     assert prepared_rows[1][6] == 1.6288
 
     print("02_exchange_depth writer dry-run OK")
-    print(f"Rows prepared: {len(prepared_rows)}")
