@@ -3,21 +3,48 @@ from storage.summary_1h_writer import write_summary_1h
 from processors.summary_1h_engine import build_summary_1h
 
 
+VALID_EXCHANGES = {
+    "Binance",
+    "Bybit",
+    "Coinbase Exchange",
+    "OKX",
+    "Gate",
+}
+
+
 def parse_number(value):
     if value is None:
         return None
 
     if isinstance(value, (int, float)):
-        return float(value)
+        number = float(value)
+
+        if number > 100 and number < 10000:
+            return number / 10000
+
+        return number
 
     cleaned = str(value).strip()
     cleaned = cleaned.replace("$", "")
-    cleaned = cleaned.replace(",", "")
+    cleaned = cleaned.replace(" ", "")
 
     if cleaned == "":
         return None
 
-    return float(cleaned)
+    if "," in cleaned and "." in cleaned:
+        cleaned = cleaned.replace(".", "")
+        cleaned = cleaned.replace(",", ".")
+    elif "." in cleaned and cleaned.count(".") > 1:
+        cleaned = cleaned.replace(".", "")
+    elif "," in cleaned and "." not in cleaned:
+        cleaned = cleaned.replace(",", "")
+
+    number = float(cleaned)
+
+    if number > 100 and number < 10000:
+        return number / 10000
+
+    return number
 
 
 def is_valid_raw_row(row):
@@ -31,10 +58,11 @@ def is_valid_raw_row(row):
         return (
             timestamp
             and timestamp != "TEST"
-            and top_exchange in {"Binance", "Bybit", "Coinbase Exchange", "OKX", "Gate"}
+            and top_exchange in VALID_EXCHANGES
             and btc_price is not None
             and total_volume_usd is not None
             and depth_ratio is not None
+            and 0 < depth_ratio < 10
         )
 
     except Exception:

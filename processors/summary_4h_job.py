@@ -17,16 +17,34 @@ def parse_number(value):
         return None
 
     if isinstance(value, (int, float)):
-        return float(value)
+        number = float(value)
+
+        if number > 100 and number < 10000:
+            return number / 10000
+
+        return number
 
     cleaned = str(value).strip()
     cleaned = cleaned.replace("$", "")
-    cleaned = cleaned.replace(",", "")
+    cleaned = cleaned.replace(" ", "")
 
     if cleaned == "":
         return None
 
-    return float(cleaned)
+    if "," in cleaned and "." in cleaned:
+        cleaned = cleaned.replace(".", "")
+        cleaned = cleaned.replace(",", ".")
+    elif "." in cleaned and cleaned.count(".") > 1:
+        cleaned = cleaned.replace(".", "")
+    elif "," in cleaned and "." not in cleaned:
+        cleaned = cleaned.replace(",", "")
+
+    number = float(cleaned)
+
+    if number > 100 and number < 10000:
+        return number / 10000
+
+    return number
 
 
 def is_valid_raw_row(row):
@@ -44,6 +62,7 @@ def is_valid_raw_row(row):
             and btc_price is not None
             and total_volume_usd is not None
             and depth_ratio is not None
+            and 0 < depth_ratio < 10
         )
 
     except Exception:
@@ -52,7 +71,6 @@ def is_valid_raw_row(row):
 
 def read_valid_raw_snapshots():
     worksheet = get_worksheet()
-
     records = worksheet.get_all_records()
 
     snapshots = []
