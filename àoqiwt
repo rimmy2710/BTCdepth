@@ -1,0 +1,18 @@
+[1mdiff --git a/.github/workflows/btc_liquidity.yml b/.github/workflows/btc_liquidity.yml[m
+[1mindex a54dbff..25a4cc6 100644[m
+[1m--- a/.github/workflows/btc_liquidity.yml[m
+[1m+++ b/.github/workflows/btc_liquidity.yml[m
+[36m@@ -37,6 +37,13 @@[m [mjobs:[m
+         run: |[m
+           python main.py[m
+ [m
+[32m+[m[32m      - name: Run outcome check job[m
+[32m+[m[32m        env:[m
+[32m+[m[32m          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}[m
+[32m+[m[32m          GOOGLE_SERVICE_ACCOUNT_JSON: credentials/service-account.json[m
+[32m+[m[32m        run: |[m
+[32m+[m[32m          python -m processors.outcome_check_job[m
+[32m+[m
+       - name: Run 1H summary on hourly mark[m
+         if: ${{ github.event.schedule == '*/15 * * * *' }}[m
+         env:[m
