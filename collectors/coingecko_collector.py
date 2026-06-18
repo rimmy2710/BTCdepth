@@ -2,6 +2,17 @@ import os
 import requests
 from dotenv import load_dotenv
 from datetime import datetime, timezone
+def get_15m_snapshot_bucket(dt=None):
+    if dt is None:
+        dt = datetime.now(timezone.utc)
+
+    minute_bucket = (dt.minute // 15) * 15
+
+    return dt.replace(
+        minute=minute_bucket,
+        second=0,
+        microsecond=0,
+    ).isoformat()
 
 
 COINGECKO_URL = "https://api.coingecko.com/api/v3/coins/bitcoin/tickers"
@@ -116,6 +127,7 @@ def build_market_summary(data):
 
     summary = {
         "timestamp": datetime.now(timezone.utc).isoformat(),
+        "snapshot_bucket": get_15m_snapshot_bucket(),
         "btc_price": top_exchange["price"],
         "total_volume_usd": round(total_volume_usd, 2),
         "total_depth_up_usd": round(total_depth_up_usd, 2),

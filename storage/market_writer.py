@@ -76,12 +76,15 @@ def write_market_snapshot(summary):
 
     row = [
         summary["timestamp"],
+        summary.get("snapshot_bucket"),
         summary["btc_price"],
         summary["total_volume_usd"],
         summary["total_depth_up_usd"],
         summary["total_depth_down_usd"],
         summary["depth_ratio"],
         summary["top_exchange"],
+        summary.get("source"),
+        
     ]
 
     retry_google_sheets_operation(

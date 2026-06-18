@@ -1,0 +1,354 @@
+btc-liquidity	Set up job	﻿2026-06-18T07:18:42.7516132Z Current runner version: '2.335.1'
+btc-liquidity	Set up job	2026-06-18T07:18:42.7544455Z ##[group]Runner Image Provisioner
+btc-liquidity	Set up job	2026-06-18T07:18:42.7545603Z Hosted Compute Agent
+btc-liquidity	Set up job	2026-06-18T07:18:42.7546592Z Version: 20260527.539
+btc-liquidity	Set up job	2026-06-18T07:18:42.7547631Z Commit: a891dd388383b896fa6ac04a82c0b75cec981078
+btc-liquidity	Set up job	2026-06-18T07:18:42.7548780Z Build Date: 2026-05-27T21:39:57Z
+btc-liquidity	Set up job	2026-06-18T07:18:42.7550206Z Worker ID: ***04f4c32f-225e-427b-ad15-efdd714ab619***
+btc-liquidity	Set up job	2026-06-18T07:18:42.7551515Z Azure Region: northcentralus
+btc-liquidity	Set up job	2026-06-18T07:18:42.7552543Z ##[endgroup]
+btc-liquidity	Set up job	2026-06-18T07:18:42.7554390Z ##[group]Operating System
+btc-liquidity	Set up job	2026-06-18T07:18:42.7555421Z Ubuntu
+btc-liquidity	Set up job	2026-06-18T07:18:42.7556281Z 24.04.4
+btc-liquidity	Set up job	2026-06-18T07:18:42.7557040Z LTS
+btc-liquidity	Set up job	2026-06-18T07:18:42.7557885Z ##[endgroup]
+btc-liquidity	Set up job	2026-06-18T07:18:42.7558729Z ##[group]Runner Image
+btc-liquidity	Set up job	2026-06-18T07:18:42.7560012Z Image: ubuntu-24.04
+btc-liquidity	Set up job	2026-06-18T07:18:42.7561023Z Version: 20260607.184.1
+btc-liquidity	Set up job	2026-06-18T07:18:42.7562472Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260607.184/images/ubuntu/Ubuntu2404-Readme.md
+btc-liquidity	Set up job	2026-06-18T07:18:42.7564606Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260607.184
+btc-liquidity	Set up job	2026-06-18T07:18:42.7565987Z ##[endgroup]
+btc-liquidity	Set up job	2026-06-18T07:18:42.7567698Z ##[group]GITHUB_TOKEN Permissions
+btc-liquidity	Set up job	2026-06-18T07:18:42.7570441Z Contents: read
+btc-liquidity	Set up job	2026-06-18T07:18:42.7571429Z Metadata: read
+btc-liquidity	Set up job	2026-06-18T07:18:42.7572412Z Packages: read
+btc-liquidity	Set up job	2026-06-18T07:18:42.7573229Z ##[endgroup]
+btc-liquidity	Set up job	2026-06-18T07:18:42.7575722Z Secret source: Actions
+btc-liquidity	Set up job	2026-06-18T07:18:42.7576888Z Prepare workflow directory
+btc-liquidity	Set up job	2026-06-18T07:18:42.7927432Z Prepare all required actions
+btc-liquidity	Set up job	2026-06-18T07:18:42.7968402Z Getting action download info
+btc-liquidity	Set up job	2026-06-18T07:18:43.0997588Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+btc-liquidity	Set up job	2026-06-18T07:18:43.1754655Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+btc-liquidity	Set up job	2026-06-18T07:18:43.3858461Z Complete job name: btc-liquidity
+btc-liquidity	Checkout repo	﻿2026-06-18T07:18:43.4691561Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.4700858Z ##[group]Run actions/checkout@v4
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.4701888Z with:
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.4702531Z   repository: rimmy2710/BTCdepth
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.4707086Z   token: ***
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.4707723Z   ssh-strict: true
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.4708365Z   ssh-user: git
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.4709018Z   persist-credentials: true
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.4709880Z   clean: true
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.4710538Z   sparse-checkout-cone-mode: true
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.4711288Z   fetch-depth: 1
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.4711940Z   fetch-tags: false
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.4712605Z   show-progress: true
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.4713272Z   lfs: false
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.4713891Z   submodules: false
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.4714595Z   set-safe-directory: true
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.4715572Z ##[endgroup]
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.5713002Z Syncing repository: rimmy2710/BTCdepth
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.5715300Z ##[group]Getting Git version info
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.5716278Z Working directory is '/home/runner/work/BTCdepth/BTCdepth'
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.5717626Z [command]/usr/bin/git version
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6084134Z git version 2.54.0
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6106489Z ##[endgroup]
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6123562Z Temporarily overriding HOME='/home/runner/work/_temp/a91bf90b-bb8f-49c7-aaa8-7a651aee24f3' before making global git config changes
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6126938Z Adding repository directory to the temporary git global config as a safe directory
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6130377Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/BTCdepth/BTCdepth
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6178685Z Deleting the contents of '/home/runner/work/BTCdepth/BTCdepth'
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6183487Z ##[group]Initializing the repository
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6188002Z [command]/usr/bin/git init /home/runner/work/BTCdepth/BTCdepth
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6293431Z hint: Using 'master' as the name for the initial branch. This default branch name
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6294998Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6296609Z hint: to use in all of your new repositories, which will suppress this warning,
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6298408Z hint: call:
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6299532Z hint:
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6301093Z hint: 	git config --global init.defaultBranch <name>
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6302100Z hint:
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6302950Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6304326Z hint: 'development'. The just-created branch can be renamed via this command:
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6305971Z hint:
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6306631Z hint: 	git branch -m <name>
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6307339Z hint:
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6308230Z hint: Disable this message with "git config set advice.defaultBranchName false"
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6309624Z Initialized empty Git repository in /home/runner/work/BTCdepth/BTCdepth/.git/
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6313034Z [command]/usr/bin/git remote add origin https://github.com/rimmy2710/BTCdepth
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6356881Z ##[endgroup]
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6358020Z ##[group]Disabling automatic garbage collection
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6360526Z [command]/usr/bin/git config --local gc.auto 0
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6455713Z ##[endgroup]
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6456972Z ##[group]Setting up auth
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6457999Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6460962Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6803612Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.6834008Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.7054587Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.7084774Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.7323843Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.7357984Z ##[endgroup]
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.7367096Z ##[group]Fetching the repository
+btc-liquidity	Checkout repo	2026-06-18T07:18:43.7368755Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +9217a24f778e38da794ffdc1e1e69f91434b25e2:refs/remotes/origin/main
+btc-liquidity	Checkout repo	2026-06-18T07:18:44.0532988Z From https://github.com/rimmy2710/BTCdepth
+btc-liquidity	Checkout repo	2026-06-18T07:18:44.0534847Z  * [new ref]         9217a24f778e38da794ffdc1e1e69f91434b25e2 -> origin/main
+btc-liquidity	Checkout repo	2026-06-18T07:18:44.0582059Z ##[endgroup]
+btc-liquidity	Checkout repo	2026-06-18T07:18:44.0583416Z ##[group]Determining the checkout info
+btc-liquidity	Checkout repo	2026-06-18T07:18:44.0584768Z ##[endgroup]
+btc-liquidity	Checkout repo	2026-06-18T07:18:44.0585729Z [command]/usr/bin/git sparse-checkout disable
+btc-liquidity	Checkout repo	2026-06-18T07:18:44.0631063Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+btc-liquidity	Checkout repo	2026-06-18T07:18:44.0659483Z ##[group]Checking out the ref
+btc-liquidity	Checkout repo	2026-06-18T07:18:44.0665210Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+btc-liquidity	Checkout repo	2026-06-18T07:18:44.0761046Z Switched to a new branch 'main'
+btc-liquidity	Checkout repo	2026-06-18T07:18:44.0762779Z branch 'main' set up to track 'origin/main'.
+btc-liquidity	Checkout repo	2026-06-18T07:18:44.0773290Z ##[endgroup]
+btc-liquidity	Checkout repo	2026-06-18T07:18:44.0816230Z [command]/usr/bin/git log -1 --format=%H
+btc-liquidity	Checkout repo	2026-06-18T07:18:44.0849455Z 9217a24f778e38da794ffdc1e1e69f91434b25e2
+btc-liquidity	Set up Python	﻿2026-06-18T07:18:44.1134292Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+btc-liquidity	Set up Python	2026-06-18T07:18:44.1137579Z ##[group]Run actions/setup-python@v5
+btc-liquidity	Set up Python	2026-06-18T07:18:44.1138335Z with:
+btc-liquidity	Set up Python	2026-06-18T07:18:44.1138937Z   python-version: 3.12
+btc-liquidity	Set up Python	2026-06-18T07:18:44.1139606Z   check-latest: false
+btc-liquidity	Set up Python	2026-06-18T07:18:44.1144305Z   token: ***
+btc-liquidity	Set up Python	2026-06-18T07:18:44.1144956Z   update-environment: true
+btc-liquidity	Set up Python	2026-06-18T07:18:44.1145658Z   allow-prereleases: false
+btc-liquidity	Set up Python	2026-06-18T07:18:44.1146348Z   freethreaded: false
+btc-liquidity	Set up Python	2026-06-18T07:18:44.1147001Z ##[endgroup]
+btc-liquidity	Set up Python	2026-06-18T07:18:44.2450551Z ##[group]Installed versions
+btc-liquidity	Set up Python	2026-06-18T07:18:44.2551850Z (node:2212) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+btc-liquidity	Set up Python	2026-06-18T07:18:44.2554320Z Successfully set up CPython (3.12.13)
+btc-liquidity	Set up Python	2026-06-18T07:18:44.2556447Z (Use `node --trace-deprecation ...` to show where the warning was created)
+btc-liquidity	Set up Python	2026-06-18T07:18:44.2582309Z ##[endgroup]
+btc-liquidity	Install dependencies	﻿2026-06-18T07:18:44.2733154Z ##[group]Run pip install -r requirements.txt
+btc-liquidity	Install dependencies	2026-06-18T07:18:44.2734544Z [36;1mpip install -r requirements.txt[0m
+btc-liquidity	Install dependencies	2026-06-18T07:18:44.2931843Z shell: /usr/bin/bash -e ***0***
+btc-liquidity	Install dependencies	2026-06-18T07:18:44.2932877Z env:
+btc-liquidity	Install dependencies	2026-06-18T07:18:44.2933853Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+btc-liquidity	Install dependencies	2026-06-18T07:18:44.2935487Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+btc-liquidity	Install dependencies	2026-06-18T07:18:44.2937118Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+btc-liquidity	Install dependencies	2026-06-18T07:18:44.2938584Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+btc-liquidity	Install dependencies	2026-06-18T07:18:44.2940365Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+btc-liquidity	Install dependencies	2026-06-18T07:18:44.2942017Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+btc-liquidity	Install dependencies	2026-06-18T07:18:44.2943382Z ##[endgroup]
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.2121837Z Collecting requests (from -r requirements.txt (line 1))
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.2725906Z   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.4037513Z Collecting pandas (from -r requirements.txt (line 2))
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.4071762Z   Downloading pandas-3.0.3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.4652210Z Collecting python-dotenv (from -r requirements.txt (line 3))
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.4685040Z   Downloading python_dotenv-1.2.2-py3-none-any.whl.metadata (27 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.4902941Z Collecting gspread (from -r requirements.txt (line 4))
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.4936893Z   Downloading gspread-6.2.1-py3-none-any.whl.metadata (11 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.5093448Z Collecting oauth2client (from -r requirements.txt (line 5))
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.5129377Z   Downloading oauth2client-4.1.3-py2.py3-none-any.whl.metadata (1.2 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.5256813Z Collecting schedule (from -r requirements.txt (line 6))
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.5290754Z   Downloading schedule-1.2.2-py3-none-any.whl.metadata (3.8 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.5569294Z Collecting python-telegram-bot (from -r requirements.txt (line 7))
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.5604538Z   Downloading python_telegram_bot-22.8-py3-none-any.whl.metadata (17 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.6522524Z Collecting charset_normalizer<4,>=2 (from requests->-r requirements.txt (line 1))
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.6558474Z   Downloading charset_normalizer-3.4.7-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.6734278Z Collecting idna<4,>=2.5 (from requests->-r requirements.txt (line 1))
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.6766266Z   Downloading idna-3.18-py3-none-any.whl.metadata (6.1 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.6977698Z Collecting urllib3<3,>=1.26 (from requests->-r requirements.txt (line 1))
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.7009623Z   Downloading urllib3-2.7.0-py3-none-any.whl.metadata (6.9 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.7187027Z Collecting certifi>=2023.5.7 (from requests->-r requirements.txt (line 1))
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.7223050Z   Downloading certifi-2026.6.17-py3-none-any.whl.metadata (2.5 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.9139443Z Collecting numpy>=1.26.0 (from pandas->-r requirements.txt (line 2))
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.9179503Z   Downloading numpy-2.4.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.9311743Z Collecting python-dateutil>=2.8.2 (from pandas->-r requirements.txt (line 2))
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.9344799Z   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.9670657Z Collecting google-auth>=1.12.0 (from gspread->-r requirements.txt (line 4))
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.9705466Z   Downloading google_auth-2.55.0-py3-none-any.whl.metadata (5.1 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.9883381Z Collecting google-auth-oauthlib>=0.4.1 (from gspread->-r requirements.txt (line 4))
+btc-liquidity	Install dependencies	2026-06-18T07:18:45.9915880Z   Downloading google_auth_oauthlib-1.4.0-py3-none-any.whl.metadata (2.6 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.0058597Z Collecting httplib2>=0.9.1 (from oauth2client->-r requirements.txt (line 5))
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.0089888Z   Downloading httplib2-0.31.2-py3-none-any.whl.metadata (2.2 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.0299649Z Collecting pyasn1>=0.1.7 (from oauth2client->-r requirements.txt (line 5))
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.0332829Z   Downloading pyasn1-0.6.3-py3-none-any.whl.metadata (8.4 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.0520686Z Collecting pyasn1-modules>=0.0.5 (from oauth2client->-r requirements.txt (line 5))
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.0552961Z   Downloading pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.0701219Z Collecting rsa>=3.1.4 (from oauth2client->-r requirements.txt (line 5))
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.0734113Z   Downloading rsa-4.9.1-py3-none-any.whl.metadata (5.6 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.0878088Z Collecting six>=1.6.1 (from oauth2client->-r requirements.txt (line 5))
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.0910323Z   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.1075631Z Collecting httpx<0.29,>=0.27 (from python-telegram-bot->-r requirements.txt (line 7))
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.1108274Z   Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.1308432Z Collecting anyio (from httpx<0.29,>=0.27->python-telegram-bot->-r requirements.txt (line 7))
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.1343508Z   Downloading anyio-4.14.0-py3-none-any.whl.metadata (4.6 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.1581115Z Collecting httpcore==1.* (from httpx<0.29,>=0.27->python-telegram-bot->-r requirements.txt (line 7))
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.1619408Z   Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.1816850Z Collecting h11>=0.16 (from httpcore==1.*->httpx<0.29,>=0.27->python-telegram-bot->-r requirements.txt (line 7))
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.1849167Z   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.3765757Z Collecting cryptography>=38.0.3 (from google-auth>=1.12.0->gspread->-r requirements.txt (line 4))
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.3802215Z   Downloading cryptography-49.0.0-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.3 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.4712929Z Collecting cffi>=2.0.0 (from cryptography>=38.0.3->google-auth>=1.12.0->gspread->-r requirements.txt (line 4))
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.4750821Z   Downloading cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.6 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.4877002Z Collecting pycparser (from cffi>=2.0.0->cryptography>=38.0.3->google-auth>=1.12.0->gspread->-r requirements.txt (line 4))
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.4909177Z   Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.5092299Z Collecting requests-oauthlib>=0.7.0 (from google-auth-oauthlib>=0.4.1->gspread->-r requirements.txt (line 4))
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.5132781Z   Downloading requests_oauthlib-2.0.0-py2.py3-none-any.whl.metadata (11 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.5371384Z Collecting pyparsing<4,>=3.1 (from httplib2>=0.9.1->oauth2client->-r requirements.txt (line 5))
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.5406035Z   Downloading pyparsing-3.3.2-py3-none-any.whl.metadata (5.8 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.5579362Z Collecting oauthlib>=3.0.0 (from requests-oauthlib>=0.7.0->google-auth-oauthlib>=0.4.1->gspread->-r requirements.txt (line 4))
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.5614879Z   Downloading oauthlib-3.3.1-py3-none-any.whl.metadata (7.9 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.5891377Z Collecting typing_extensions>=4.5 (from anyio->httpx<0.29,>=0.27->python-telegram-bot->-r requirements.txt (line 7))
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.5925271Z   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.6009684Z Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.6067742Z Downloading charset_normalizer-3.4.7-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (216 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.6149761Z Downloading idna-3.18-py3-none-any.whl (65 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.6207139Z Downloading urllib3-2.7.0-py3-none-any.whl (131 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.6264407Z Downloading pandas-3.0.3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (10.9 MB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.6753179Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.9/10.9 MB 231.7 MB/s  0:00:00
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.6787923Z Downloading python_dotenv-1.2.2-py3-none-any.whl (22 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.6840569Z Downloading gspread-6.2.1-py3-none-any.whl (59 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.6895449Z Downloading oauth2client-4.1.3-py2.py3-none-any.whl (98 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.6952019Z Downloading schedule-1.2.2-py3-none-any.whl (12 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.7014336Z Downloading python_telegram_bot-22.8-py3-none-any.whl (769 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.7100673Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 769.4/769.4 kB 82.4 MB/s  0:00:00
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.7130769Z Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.7186692Z Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.7242995Z Downloading certifi-2026.6.17-py3-none-any.whl (133 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.7298147Z Downloading google_auth-2.55.0-py3-none-any.whl (252 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.7357224Z Downloading cryptography-49.0.0-cp311-abi3-manylinux_2_34_x86_64.whl (4.7 MB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.7517698Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 325.1 MB/s  0:00:00
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.7551102Z Downloading cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (219 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.7608222Z Downloading google_auth_oauthlib-1.4.0-py3-none-any.whl (19 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.7663031Z Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.7725114Z Downloading httplib2-0.31.2-py3-none-any.whl (91 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.7785480Z Downloading pyparsing-3.3.2-py3-none-any.whl (122 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.7841778Z Downloading numpy-2.4.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.6 MB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.8425007Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.6/16.6 MB 297.1 MB/s  0:00:00
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.8462212Z Downloading pyasn1-0.6.3-py3-none-any.whl (83 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.8518104Z Downloading pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.8577468Z Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.8633989Z Downloading requests_oauthlib-2.0.0-py2.py3-none-any.whl (24 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.8687561Z Downloading oauthlib-3.3.1-py3-none-any.whl (160 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.8743999Z Downloading rsa-4.9.1-py3-none-any.whl (34 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.8795760Z Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.8847281Z Downloading anyio-4.14.0-py3-none-any.whl (123 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.8901893Z Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:46.8957063Z Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+btc-liquidity	Install dependencies	2026-06-18T07:18:47.0483883Z Installing collected packages: urllib3, typing_extensions, six, schedule, python-dotenv, pyparsing, pycparser, pyasn1, oauthlib, numpy, idna, h11, charset_normalizer, certifi, rsa, requests, python-dateutil, pyasn1-modules, httplib2, httpcore, cffi, anyio, requests-oauthlib, pandas, oauth2client, httpx, cryptography, python-telegram-bot, google-auth, google-auth-oauthlib, gspread
+btc-liquidity	Install dependencies	2026-06-18T07:18:55.8883580Z 
+btc-liquidity	Install dependencies	2026-06-18T07:18:55.8917315Z Successfully installed anyio-4.14.0 certifi-2026.6.17 cffi-2.0.0 charset_normalizer-3.4.7 cryptography-49.0.0 google-auth-2.55.0 google-auth-oauthlib-1.4.0 gspread-6.2.1 h11-0.16.0 httpcore-1.0.9 httplib2-0.31.2 httpx-0.28.1 idna-3.18 numpy-2.4.6 oauth2client-4.1.3 oauthlib-3.3.1 pandas-3.0.3 pyasn1-0.6.3 pyasn1-modules-0.4.2 pycparser-3.0 pyparsing-3.3.2 python-dateutil-2.9.0.post0 python-dotenv-1.2.2 python-telegram-bot-22.8 requests-2.34.2 requests-oauthlib-2.0.0 rsa-4.9.1 schedule-1.2.2 six-1.17.0 typing_extensions-4.15.0 urllib3-2.7.0
+btc-liquidity	Create Google credentials file	﻿2026-06-18T07:18:56.0343052Z ##[group]Run mkdir -p credentials
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0343551Z [36;1mmkdir -p credentials[0m
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0344004Z [36;1mecho '***[0m
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0344339Z [36;1m  ***[0m
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0344661Z [36;1m  ***[0m
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0345073Z [36;1m  ***[0m
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0352652Z [36;1m  ***[0m
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0353100Z [36;1m  ***[0m
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0353425Z [36;1m  ***[0m
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0353959Z [36;1m  ***[0m
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0354319Z [36;1m  ***[0m
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0354771Z [36;1m  ***[0m
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0355404Z [36;1m  ***[0m
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0355721Z [36;1m  ***[0m
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0355988Z [36;1m***[0m
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0356285Z [36;1m' > credentials/service-account.json[0m
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0390581Z shell: /usr/bin/bash -e ***0***
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0390955Z env:
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0391321Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0391875Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0392464Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0392948Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0393417Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0393889Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+btc-liquidity	Create Google credentials file	2026-06-18T07:18:56.0394308Z ##[endgroup]
+btc-liquidity	Run 15m market collection	﻿2026-06-18T07:18:56.0514959Z ##[group]Run python main.py
+btc-liquidity	Run 15m market collection	2026-06-18T07:18:56.0515375Z [36;1mpython main.py[0m
+btc-liquidity	Run 15m market collection	2026-06-18T07:18:56.0549344Z shell: /usr/bin/bash -e ***0***
+btc-liquidity	Run 15m market collection	2026-06-18T07:18:56.0550001Z env:
+btc-liquidity	Run 15m market collection	2026-06-18T07:18:56.0550408Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+btc-liquidity	Run 15m market collection	2026-06-18T07:18:56.0550968Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+btc-liquidity	Run 15m market collection	2026-06-18T07:18:56.0551504Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+btc-liquidity	Run 15m market collection	2026-06-18T07:18:56.0551973Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+btc-liquidity	Run 15m market collection	2026-06-18T07:18:56.0552460Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+btc-liquidity	Run 15m market collection	2026-06-18T07:18:56.0552942Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+btc-liquidity	Run 15m market collection	2026-06-18T07:18:56.0553454Z   COINGECKO_API_KEY: ***
+btc-liquidity	Run 15m market collection	2026-06-18T07:18:56.0553869Z   GOOGLE_SHEET_ID: ***
+btc-liquidity	Run 15m market collection	2026-06-18T07:18:56.0554244Z   GOOGLE_SERVICE_ACCOUNT_JSON: credentials/service-account.json
+btc-liquidity	Run 15m market collection	2026-06-18T07:18:56.0554815Z   TELEGRAM_BOT_TOKEN: ***
+btc-liquidity	Run 15m market collection	2026-06-18T07:18:56.0555169Z   TELEGRAM_CHAT_ID: ***
+btc-liquidity	Run 15m market collection	2026-06-18T07:18:56.0555524Z ##[endgroup]
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4794228Z BTC Depth System Started
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4795046Z Environment Loaded
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4795260Z 
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4795432Z BTC MAJOR EXCHANGES DEPTH SUMMARY
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4795822Z ---------------------------------
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4796236Z Timestamp: 2026-06-18T07:18:58.090441+00:00
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4796623Z BTC Price: 64129
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4796957Z Total Volume USD: 5400699351
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4797319Z Total Depth Up USD: 54794906.4
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4797679Z Total Depth Down USD: 83571568.11
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4798032Z Depth Ratio: 0.6557
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4798376Z Top Exchange: Binance
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4798723Z Top Exchange Pair: BTC/USDT
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4799088Z Top Exchange Volume USD: 1225281935
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4799460Z Selected Exchange Count: 8
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4800190Z Selected Exchanges: Binance, Bybit, Coinbase Exchange, Gate, OKX
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4800649Z Source: CoinGecko
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4800995Z Market snapshot written to Google Sheets
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4801791Z Exchange depth rows written to Google Sheets: 8
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4802204Z Liquidity alert sent to Telegram
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4802426Z 
+btc-liquidity	Run 15m market collection	2026-06-18T07:19:01.4802587Z Pipeline completed successfully
+btc-liquidity	Run 1H summary on hourly mark	﻿2026-06-18T07:19:01.5592120Z ##[group]Run minute=$(date -u +'%M')
+btc-liquidity	Run 1H summary on hourly mark	2026-06-18T07:19:01.5592573Z [36;1mminute=$(date -u +'%M')[0m
+btc-liquidity	Run 1H summary on hourly mark	2026-06-18T07:19:01.5592926Z [36;1mif [ "$minute" = "00" ]; then[0m
+btc-liquidity	Run 1H summary on hourly mark	2026-06-18T07:19:01.5593314Z [36;1m  python -m processors.summary_1h_job[0m
+btc-liquidity	Run 1H summary on hourly mark	2026-06-18T07:19:01.5593689Z [36;1melse[0m
+btc-liquidity	Run 1H summary on hourly mark	2026-06-18T07:19:01.5594031Z [36;1m  echo "Skip 1H summary. Current minute: $minute"[0m
+btc-liquidity	Run 1H summary on hourly mark	2026-06-18T07:19:01.5594421Z [36;1mfi[0m
+btc-liquidity	Run 1H summary on hourly mark	2026-06-18T07:19:01.5626230Z shell: /usr/bin/bash -e ***0***
+btc-liquidity	Run 1H summary on hourly mark	2026-06-18T07:19:01.5626592Z env:
+btc-liquidity	Run 1H summary on hourly mark	2026-06-18T07:19:01.5626946Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+btc-liquidity	Run 1H summary on hourly mark	2026-06-18T07:19:01.5627500Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+btc-liquidity	Run 1H summary on hourly mark	2026-06-18T07:19:01.5628034Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+btc-liquidity	Run 1H summary on hourly mark	2026-06-18T07:19:01.5628527Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+btc-liquidity	Run 1H summary on hourly mark	2026-06-18T07:19:01.5628996Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+btc-liquidity	Run 1H summary on hourly mark	2026-06-18T07:19:01.5629469Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+btc-liquidity	Run 1H summary on hourly mark	2026-06-18T07:19:01.5630308Z   GOOGLE_SHEET_ID: ***
+btc-liquidity	Run 1H summary on hourly mark	2026-06-18T07:19:01.5630699Z   GOOGLE_SERVICE_ACCOUNT_JSON: credentials/service-account.json
+btc-liquidity	Run 1H summary on hourly mark	2026-06-18T07:19:01.5631139Z ##[endgroup]
+btc-liquidity	Run 1H summary on hourly mark	2026-06-18T07:19:01.5697752Z Skip 1H summary. Current minute: 19
+btc-liquidity	Run 4H summary on 4H mark	﻿2026-06-18T07:19:01.5730544Z ##[group]Run hour=$(date -u +'%H')
+btc-liquidity	Run 4H summary on 4H mark	2026-06-18T07:19:01.5730970Z [36;1mhour=$(date -u +'%H')[0m
+btc-liquidity	Run 4H summary on 4H mark	2026-06-18T07:19:01.5731312Z [36;1mminute=$(date -u +'%M')[0m
+btc-liquidity	Run 4H summary on 4H mark	2026-06-18T07:19:01.5731719Z [36;1mif [ "$minute" = "00" ] && [ $((10#$hour % 4)) -eq 0 ]; then[0m
+btc-liquidity	Run 4H summary on 4H mark	2026-06-18T07:19:01.5732198Z [36;1m  python -m processors.summary_4h_job[0m
+btc-liquidity	Run 4H summary on 4H mark	2026-06-18T07:19:01.5732574Z [36;1melse[0m
+btc-liquidity	Run 4H summary on 4H mark	2026-06-18T07:19:01.5732939Z [36;1m  echo "Skip 4H summary. Current time UTC: $hour:$minute"[0m
+btc-liquidity	Run 4H summary on 4H mark	2026-06-18T07:19:01.5733369Z [36;1mfi[0m
+btc-liquidity	Run 4H summary on 4H mark	2026-06-18T07:19:01.5762444Z shell: /usr/bin/bash -e ***0***
+btc-liquidity	Run 4H summary on 4H mark	2026-06-18T07:19:01.5762804Z env:
+btc-liquidity	Run 4H summary on 4H mark	2026-06-18T07:19:01.5763159Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+btc-liquidity	Run 4H summary on 4H mark	2026-06-18T07:19:01.5763697Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+btc-liquidity	Run 4H summary on 4H mark	2026-06-18T07:19:01.5764219Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+btc-liquidity	Run 4H summary on 4H mark	2026-06-18T07:19:01.5764700Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+btc-liquidity	Run 4H summary on 4H mark	2026-06-18T07:19:01.5765171Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+btc-liquidity	Run 4H summary on 4H mark	2026-06-18T07:19:01.5765697Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+btc-liquidity	Run 4H summary on 4H mark	2026-06-18T07:19:01.5766235Z   GOOGLE_SHEET_ID: ***
+btc-liquidity	Run 4H summary on 4H mark	2026-06-18T07:19:01.5766626Z   GOOGLE_SERVICE_ACCOUNT_JSON: credentials/service-account.json
+btc-liquidity	Run 4H summary on 4H mark	2026-06-18T07:19:01.5767055Z ##[endgroup]
+btc-liquidity	Run 4H summary on 4H mark	2026-06-18T07:19:01.5841002Z Skip 4H summary. Current time UTC: 07:19
+btc-liquidity	Post Set up Python	﻿2026-06-18T07:19:01.5937663Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+btc-liquidity	Post Set up Python	2026-06-18T07:19:01.5939058Z Post job cleanup.
+btc-liquidity	Post Set up Python	2026-06-18T07:19:01.7146822Z (node:2264) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+btc-liquidity	Post Set up Python	2026-06-18T07:19:01.7147875Z (Use `node --trace-deprecation ...` to show where the warning was created)
+btc-liquidity	Post Checkout repo	﻿2026-06-18T07:19:01.7311555Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+btc-liquidity	Post Checkout repo	2026-06-18T07:19:01.7312940Z Post job cleanup.
+btc-liquidity	Post Checkout repo	2026-06-18T07:19:01.8144225Z [command]/usr/bin/git version
+btc-liquidity	Post Checkout repo	2026-06-18T07:19:01.8181982Z git version 2.54.0
+btc-liquidity	Post Checkout repo	2026-06-18T07:19:01.8219603Z Temporarily overriding HOME='/home/runner/work/_temp/16860be0-04c3-45f4-a069-9a5d3e5f3f3e' before making global git config changes
+btc-liquidity	Post Checkout repo	2026-06-18T07:19:01.8220975Z Adding repository directory to the temporary git global config as a safe directory
+btc-liquidity	Post Checkout repo	2026-06-18T07:19:01.8225268Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/BTCdepth/BTCdepth
+btc-liquidity	Post Checkout repo	2026-06-18T07:19:01.8263868Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+btc-liquidity	Post Checkout repo	2026-06-18T07:19:01.8324200Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+btc-liquidity	Post Checkout repo	2026-06-18T07:19:01.8548192Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+btc-liquidity	Post Checkout repo	2026-06-18T07:19:01.8575708Z http.https://github.com/.extraheader
+btc-liquidity	Post Checkout repo	2026-06-18T07:19:01.8586212Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+btc-liquidity	Post Checkout repo	2026-06-18T07:19:01.8621048Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+btc-liquidity	Post Checkout repo	2026-06-18T07:19:01.8858534Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+btc-liquidity	Post Checkout repo	2026-06-18T07:19:01.8895937Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+btc-liquidity	Complete job	﻿2026-06-18T07:19:01.9278447Z Cleaning up orphan processes
+btc-liquidity	Complete job	2026-06-18T07:19:01.9579521Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
