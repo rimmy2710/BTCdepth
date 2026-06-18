@@ -7,6 +7,7 @@ from storage.outcome_writer import write_outcomes
 
 EVENT_SHEET = "05_event_database"
 RAW_SHEET = "01_raw_market"
+OUTCOME_SHEET = "06_outcome_database"
 
 HORIZONS = {
     "1H": timedelta(hours=1),
@@ -23,6 +24,19 @@ def get_records(sheet_name):
     spreadsheet = get_sheet()
     worksheet = spreadsheet.worksheet(sheet_name)
     return worksheet.get_all_records()
+
+
+def build_existing_outcome_keys(outcome_records):
+    keys = set()
+
+    for record in outcome_records:
+        event_id = record.get("event_id")
+        horizon = record.get("horizon")
+
+        if event_id and horizon:
+            keys.add((event_id, horizon))
+
+    return keys
 
 
 def find_nearest_raw_snapshot(raw_records, target_time):
@@ -51,6 +65,9 @@ def build_summary_from_raw(raw_record):
 def main():
     event_records = get_records(EVENT_SHEET)
     raw_records = get_records(RAW_SHEET)
+    outcome_records = get_records(OUTCOME_SHEET)
+
+    existing_outcome_keys = build_existing_outcome_keys(outcome_records)
 
     outcomes = []
 
@@ -61,6 +78,11 @@ def main():
         event_time = parse_dt(event["event_time"])
 
         for horizon, delta in HORIZONS.items():
+            outcome_key = (event["event_id"], horizon)
+
+            if outcome_key in existing_outcome_keys:
+                continue
+
             target_time = event_time + delta
 
             if datetime.now(timezone.utc) < target_time:
@@ -80,6 +102,7 @@ def main():
             )
 
             outcomes.append(outcome)
+            existing_outcome_keys.add(outcome_key)
 
     write_outcomes(outcomes)
 
