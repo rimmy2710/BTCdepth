@@ -26,6 +26,20 @@ def get_records(sheet_name):
     return worksheet.get_all_records()
 
 
+def is_valid_timestamp(value):
+    if not value:
+        return False
+
+    if value == "TEST":
+        return False
+
+    try:
+        parse_dt(value)
+        return True
+    except Exception:
+        return False
+
+
 def build_existing_outcome_keys(outcome_records):
     keys = set()
 
@@ -44,7 +58,13 @@ def find_nearest_raw_snapshot(raw_records, target_time):
     best_diff = None
 
     for record in raw_records:
-        snapshot_time = parse_dt(record["timestamp"])
+        timestamp = record.get("timestamp")
+
+        if not is_valid_timestamp(timestamp):
+            continue
+
+        snapshot_time = parse_dt(timestamp)
+
         diff = abs((snapshot_time - target_time).total_seconds())
 
         if best_diff is None or diff < best_diff:
@@ -62,6 +82,22 @@ def build_summary_from_raw(raw_record):
     }
 
 
+def is_open_event(event):
+    if event.get("status") != "OPEN":
+        return False
+
+    if not event.get("event_id"):
+        return False
+
+    if not event.get("event_type"):
+        return False
+
+    if not is_valid_timestamp(event.get("event_time")):
+        return False
+
+    return True
+
+
 def main():
     event_records = get_records(EVENT_SHEET)
     raw_records = get_records(RAW_SHEET)
@@ -72,7 +108,7 @@ def main():
     outcomes = []
 
     for event in event_records:
-        if event.get("status") != "OPEN":
+        if not is_open_event(event):
             continue
 
         event_time = parse_dt(event["event_time"])
